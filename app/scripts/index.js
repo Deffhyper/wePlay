@@ -1,4 +1,5 @@
 import './../styles/main.scss'
+import './../scripts/polyfill'
 
 if (process.env.NODE_ENV !== 'production') {
   require('./../index.pug')
@@ -64,9 +65,27 @@ export class Common {
       modal.addEventListener('click', function (event) {
         event.preventDefault()
         let modalDataAttr = this.dataset.modal
-
         document.querySelector(modalDataAttr).style.display = 'block'
       })
+    }
+  }
+
+  modalClose () {
+    const modalCloseSpanArray = document.querySelectorAll('.modal .close')
+    for (let modalCloseSpan of modalCloseSpanArray) {
+      modalCloseSpan.addEventListener('click', function (event) {
+        event.preventDefault()
+        this.closest('.modal').style.display = 'none'
+      })
+    }
+
+    window.onclick = function (event) {
+      if (event.target.className === 'modal') {
+        let modals = document.querySelectorAll('.modal')
+        for (let modal of modals) {
+          modal.style.display = 'none'
+        }
+      }
     }
   }
 
@@ -75,6 +94,7 @@ export class Common {
     this.closeDropdown()
     this.openMobMenu()
     this.modalOpen()
+    this.modalClose()
   }
 }
 export default new Common()

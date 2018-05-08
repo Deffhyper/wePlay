@@ -90,7 +90,7 @@
 
     &.menu-open {
       left: 0;
-      position: absolute;
+      position: fixed;
       z-index: 13;
     }
   }

@@ -223,6 +223,7 @@
 
 .comments-list {
   padding: 0 25px;
+  margin-bottom: 140px;
 }
 
 .user-name {
@@ -280,6 +281,69 @@
 .comments-list-wrapper {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: calc(100% + 100px);
+  height: 100%;
   width: 335px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  font-size: 23px;
+  font-weight: lighter;
+  padding: 10px;
+}
+
+.modal {
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: absolute;
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+  width: 450px;
+  max-width: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+/* Add Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
